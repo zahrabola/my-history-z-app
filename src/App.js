@@ -1,4 +1,4 @@
-
+import History from './History';
 import './App.css';
 
 function App() {
@@ -6,6 +6,7 @@ function App() {
     <div className="App">
      
  Black History App
+ <History />
     </div>
   );
 }
