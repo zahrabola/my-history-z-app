@@ -1,12 +1,13 @@
-import History from './History';
+
 import './App.css';
+import BlackH from './BlackH';
 
 function App() {
   return (
     <div className="App">
      
  Black History App
- <History />
+ <BlackH />
     </div>
   );
 }
