@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -75,7 +76,7 @@ function History () {
                                     population: <span>{item.description}</span>
                                   </li>
                                   <li>
-                                    Region: <span>{item.died}</span>
+                                   Year of Death: <span>{item.died}</span>
                                   </li>
                                   <li>
                                     Date of Birth: <span>{item.dob}</span>
