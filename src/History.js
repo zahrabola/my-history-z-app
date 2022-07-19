@@ -57,7 +57,7 @@ function History () {
               /* here we map over the element and display each item as a card  */
               <div className="wrapper">
                 <BlackH />
-                   <Container>
+                <Container>
                   <Search setText={setText} />
                   <Row>
                     <Col md="5">
@@ -70,13 +70,22 @@ function History () {
                                 <img src={item.image} alt={item.name} />
                               </div>
                               <div className="card-content">
-                                <h2 className="card-name">{item.name}</h2>
+                                <Link
+                                  to={`/History/${item.name}`}
+                                  className="link-btn"
+                                >
+                                  <h2 className="card-name">{item.name}</h2>
+                                </Link>
+
                                 <ol className="card-list">
+                                  <li>
+                                    name 2: <span>{item.name}</span>
+                                  </li>
                                   <li>
                                     population: <span>{item.description}</span>
                                   </li>
                                   <li>
-                                   Year of Death: <span>{item.died}</span>
+                                    Year of Death: <span>{item.died}</span>
                                   </li>
                                   <li>
                                     Date of Birth: <span>{item.dob}</span>
@@ -95,7 +104,6 @@ function History () {
                         ))}
                       </ul>
                     </Col>
-                    
                   </Row>
                 </Container>
               </div>
