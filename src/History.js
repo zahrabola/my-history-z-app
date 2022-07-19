@@ -8,7 +8,7 @@ import BlackH from "./BlackH";
 //import axios from "axios";
 ///https://www.freecodecamp.org/news/search-and-filter-component-in-reactjs/
 
-function History () {
+function History ( info) {
         const [error, setError] = useState(null);
         const [isLoaded, setIsLoaded] = useState(false);
         const [items, setItems] = useState([]);
@@ -71,33 +71,13 @@ function History () {
                               </div>
                               <div className="card-content">
                                 <Link
-                                  to={`/History/${item.name}`}
+                                  to={`/History/${info}`}
                                   className="link-btn"
                                 >
                                   <h2 className="card-name">{item.name}</h2>
                                 </Link>
 
-                                <ol className="card-list">
-                                  <li>
-                                    name 2: <span>{item.name}</span>
-                                  </li>
-                                  <li>
-                                    population: <span>{item.description}</span>
-                                  </li>
-                                  <li>
-                                    Year of Death: <span>{item.died}</span>
-                                  </li>
-                                  <li>
-                                    Date of Birth: <span>{item.dob}</span>
-                                  </li>
-                                  <li>
-                                    Age: <span>{item.age}</span>
-                                  </li>
-
-                                  <li>
-                                    Occupation: <span>{item.knownFor}</span>
-                                  </li>
-                                </ol>
+                                
                               </div>
                             </article>
                           </li>
