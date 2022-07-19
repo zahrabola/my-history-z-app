@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Search from "./Search";
+import BlackH from "./BlackH";
 //import axios from "axios";
 ///https://www.freecodecamp.org/news/search-and-filter-component-in-reactjs/
 
@@ -54,10 +55,11 @@ function History () {
             return (
               /* here we map over the element and display each item as a card  */
               <div className="wrapper">
-                <Container>
+                <BlackH />
+                   <Container>
+                  <Search setText={setText} />
                   <Row>
-                    <Search setText={setText}/>
-                    <Col xs={6}>
+                    <Col md="5">
                       {" "}
                       <ul className="card-grid">
                         {search(items).map((item) => (
@@ -92,6 +94,7 @@ function History () {
                         ))}
                       </ul>
                     </Col>
+                    
                   </Row>
                 </Container>
               </div>
