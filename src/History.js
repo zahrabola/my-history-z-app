@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Search from "./Search";
 import BlackH from "./BlackH";
+import CenteredModal from "./CenteredModal";
+import Button from "react-bootstrap/Button";
+
+
+//import HPage from "./HPage";
 //import axios from "axios";
 ///https://www.freecodecamp.org/news/search-and-filter-component-in-reactjs/
 
-function History ( info) {
+function History () {
         const [error, setError] = useState(null);
         const [isLoaded, setIsLoaded] = useState(false);
         const [items, setItems] = useState([]);
           const [text, setText] = useState("");
-
+const [modalShow, setModalShow] = useState (false)
          const [searchParam] = useState(["name"]);
 
          function search(items) {
@@ -69,20 +73,51 @@ function History ( info) {
                               <div className="card-image">
                                 <img src={item.image} alt={item.name} />
                               </div>
-                              <div className="card-content">
-                                <Link
-                                  to={`/History/${info}`}
-                                  className="link-btn"
-                                >
-                                  <h2 className="card-name">{item.name}</h2>
-                                </Link>
-
-                                
-                              </div>
                             </article>
+                             <section className="cards">
+                       
+                          <div className="card-content">
+
+ <Button variant="primary" onClick={() => setModalShow(true)}>
+        Launch vertically centered modal
+      </Button>
+
+      <CenteredModal
+        show={modalShow}
+        item={item}
+        onHide={() => setModalShow(false)}
+      />
+  
+
+                            <h2 className="card-name">{item.name}</h2>
+                            <ol className="card-list">
+                              <li>
+                                name 2: <span>{item.name}</span>
+                              </li>
+                              <li>
+                                population: <span>{item.description}</span>
+                              </li>
+                              <li>
+                                Year of Death: <span>{item.died}</span>
+                              </li>
+                              <li>
+                                Date of Birth: <span>{item.dob}</span>
+                              </li>
+                              <li>
+                                Age: <span>{item.age}</span>
+                              </li>
+
+                              <li>
+                                Occupation: <span>{item.knownFor}</span>
+                              </li>
+                            </ol>
+                     </div>
+                      </section>
                           </li>
+                          
                         ))}
                       </ul>
+                     
                     </Col>
                   </Row>
                 </Container>

@@ -1,53 +1,63 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import {  useParams } from "react-router-dom";
+const HPage = () => { 
+    const [country, setCountry] = useState([]);
 
-const HPage = ({  }) => {
-    const [page, setPage] = useState();
+const { info} = useParams();
 
+useEffect(() => {
+  const fetchCountryData = async () => {
+    const response = await fetch(
+      `https://black-history-month-api.herokuapp.com/people`
+    );
+    const country = await response.json();
+    setCountry(country);
+    console.log(country);
+  };
+  fetchCountryData();
+}, [info]);
 
-
-  const { info } = useParams();
-
-  useEffect(() => {
-    const fetchPageData = async () => {
-      const response = await fetch(`https://restcountries.com/v2/name/${info}`);
-      const page = await response.json();
-     setPage(page);
-      console.log(page);
-    };
-    fetchPageData();
-  }, [info]);
-
+return (
+  <>
   
-  return (
-    <>
-      <h1> Hello </h1>
+    <h1 className="countrytitle"> Country Data </h1>
+    <section className="country">
+      {country.map((c) => {
+        const { died, name, description,dob, age, knownFor, } = c;
 
-      <section>
-        {page.map((p) => {
-          const { dob, name } = p;
+        return (
+          <article>
+            <div className="countrydetail">
+              <h2>{name}</h2>
+              <ol className="card-list">
+                <li>
+                  name 2: <span>{name}</span>
+                </li>
+                <li>
+                  population: <span>{description}</span>
+                </li>
+                <li>
+                  Year of Death: <span>{died}</span>
+                </li>
+                <li>
+                  Date of Birth: <span>{dob}</span>
+                </li>
+                <li>
+                  Age: <span>{age}</span>
+                </li>
 
-          return (
-            <article>
-              <div className="countrydetail">
-                <p>Name {name}</p>
-                <p>Date of {dob}</p>
-              </div>
-            </article>
-          );
-        })}
-      </section>
-    </>
-  );
-};
+                <li>
+                  Occupation: <span>{knownFor}</span>
+                </li>
+              </ol>
+            </div>
+          </article>
+        );
+      })}
+    </section>
+  </>
+);
+  }
 
 
-
-
-
-
-
-
-
-
-export default HPage; 
+export default HPage;
