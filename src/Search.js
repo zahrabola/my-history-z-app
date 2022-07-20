@@ -2,6 +2,7 @@ import React from "react";
 
 
 const Search = ({ text,  setText }) => {
+  
   return (
     <section className="search">
       <form>
