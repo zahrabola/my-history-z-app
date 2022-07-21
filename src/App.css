@@ -5,17 +5,37 @@
 }
 .App {
   text-align: center;
+  background-color: black;
+  padding: 10px;
+}
+.title{
+  color: white;
+  font-size: 40px;
 }
 .card-grid{
-    padding: 20px;
+  padding: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: space-evenly;
     gap: 0.5rem;
 }
 img {
-  width: 400px;
+  width: 350px;
   height: 550px;
+
+}
+.row1{
+    position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+ background-color: black ;
+  padding: 40px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.search  {
+  position: sticky;
 
 }
 .H-card{
@@ -25,6 +45,7 @@ img {
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  
 }
 
 @media (max-width: 500px) {

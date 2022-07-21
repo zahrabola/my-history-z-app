@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 //import Col from "react-bootstrap/Col";
 import "bootstrap/dist/css/bootstrap.css";
 import Search from "./Search";
-import BlackH from "./BlackH";
+//import BlackH from "./BlackH";
 import CenteredModal from "./CenteredModal";
 import Button from "react-bootstrap/Button";
 
@@ -63,14 +63,12 @@ const [modalShow, setModalShow] = useState (false)
         } else {
             return (
               <div className="wrapper">
-                <BlackH />
                 <div className="container">
-                  <div className="row">
+                  <div className="row1">
                     <Search setText={setText} />
                   </div>
-
                   <div className="row">
-                  <div className="col">
+                    <div className="col">
                       {" "}
                       <div className="card-grid">
                         {search(items).map((item) => (

@@ -7,10 +7,9 @@ import History from "./History";
 function App() {
   return (
     <div className="App">
-      Black History App
-     
-         <History />
-         
+      <h1 className="title"> Black History App </h1>
+
+      <History />
     </div>
   );
 }
