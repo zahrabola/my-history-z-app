@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 //import Container from "react-bootstrap/Container";
 //import Row from "react-bootstrap/Row";
 //import Col from "react-bootstrap/Col";
+import "bootstrap/dist/css/bootstrap.css";
 import Search from "./Search";
 import BlackH from "./BlackH";
 import CenteredModal from "./CenteredModal";
@@ -69,17 +70,17 @@ const [modalShow, setModalShow] = useState (false)
                   </div>
 
                   <div className="row">
-                    <div className="col">
+                  <div className="col">
                       {" "}
                       <div className="card-grid">
                         {search(items).map((item) => (
                           <div>
                             <article
-                              className="card"
+                              className="H-card"
                               key={item.id.toString()}
                               value={item}
                             >
-                              <div className="card-image">
+                              <div className="card-image img-fluid">
                                 <img src={item.image} alt={item.name} />
                               </div>
                             </article>
@@ -95,7 +96,7 @@ const [modalShow, setModalShow] = useState (false)
                               <CenteredModal
                                 show={modalShow}
                                 item={item}
-                                item={item.toString()}
+                                //item={item.toString()}
                                 onHide={() => setModalShow(false)}
                               />
                             </section>
